@@ -1,0 +1,3 @@
+- [ ] Add JSON dependency library and use it to parse JSON.
+- [ ] Parse date params
+- [ ] Find a way to make it easier to write new API functions
