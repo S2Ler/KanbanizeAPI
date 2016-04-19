@@ -54,6 +54,24 @@ class ClientTests: XCTestCase {
     waitForExpectationsWithTimeout(5, handler: nil)
   }
   
+  func testAddComment() {
+    let c = client()
+    let commentAdded = expectationWithDescription("Comment Added")
+    c.login { result in
+      try! c.addComment("A Comment",
+        taskID: TaskID(46), completion: { result in
+          switch result {
+          case .Success(let logTimeInfo):
+            print(logTimeInfo)
+            commentAdded.fulfill()
+          case .Failure(let error):
+            print(error)
+          }
+      })
+    }
+    waitForExpectationsWithTimeout(5, handler: nil)
+  }
+  
   func client(passwordLogin: (email: String, password: String)? = nil) -> KanbanizeAPI.Client {
     if let login = passwordLogin {
       return Client(subdomain: subdomain,
