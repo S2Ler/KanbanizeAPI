@@ -12,7 +12,7 @@ public protocol APIResult {
   init?(jsonObject: AnyObject)
 }
 
-internal class DataParser {
+internal struct DataParser {
   static func parse<T: APIResult>(data: NSData) throws -> T {
     let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
     
