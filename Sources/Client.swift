@@ -2,7 +2,7 @@
 import Foundation
 
 public final class Client {
-  internal let subdomain: String
+  public let subdomain: String
   internal let loginInfo: LoginInfo
   private(set) internal var credentials: Credentials?
   internal let executor: Executor
