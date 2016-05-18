@@ -91,7 +91,9 @@
 				098365C91C725F95007F5436 /* KanbanizeAPIOSXTests */,
 				098365BC1C725F95007F5436 /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		098365B51C725F77007F5436 /* Sources */ = {
 			isa = PBXGroup;

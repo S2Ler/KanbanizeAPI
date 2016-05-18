@@ -4,14 +4,7 @@ import XCTest
 
 class ClientTests: XCTestCase {
   func testAPIKeyLogin() {
-    let loggedIn = expectationWithDescription("Logged In")
-    client().login {
-      if case .Success = $0 {
-        loggedIn.fulfill()
-      }
-    }
-    
-    waitForExpectationsWithTimeout(0, handler: nil)
+    XCTAssertTrue(client().isLoggedIn)
   }
   
   func testEmailPasswordLogin() {
@@ -39,36 +32,32 @@ class ClientTests: XCTestCase {
   func testLogTime() {
     let c = client()
     let timeLogged = expectationWithDescription("Time Logged")
-    c.login { result in
-      try! c.logTime(LoggedTime(hours: 1),
-        taskID: TaskID(46), completion: { result in
-          switch result {
-          case .Success(let logTimeInfo):
-            print(logTimeInfo)
-            timeLogged.fulfill()
-          case .Failure(let error):
-            print(error)
-          }
-      })
-    }
+    try! c.logTime(LoggedTime(hours: 1),
+                   taskID: TaskID(testTaskID), completion: { result in
+                    switch result {
+                    case .Success(let logTimeInfo):
+                      print(logTimeInfo)
+                      timeLogged.fulfill()
+                    case .Failure(let error):
+                      print(error)
+                    }
+    })
     waitForExpectationsWithTimeout(5, handler: nil)
   }
   
   func testAddComment() {
     let c = client()
     let commentAdded = expectationWithDescription("Comment Added")
-    c.login { result in
-      try! c.addComment("A Comment",
-        taskID: TaskID(46), completion: { result in
-          switch result {
-          case .Success(let logTimeInfo):
-            print(logTimeInfo)
-            commentAdded.fulfill()
-          case .Failure(let error):
-            print(error)
-          }
-      })
-    }
+    try! c.addComment("A Comment",
+                      taskID: TaskID(testTaskID), completion: { result in
+                        switch result {
+                        case .Success(let logTimeInfo):
+                          print(logTimeInfo)
+                          commentAdded.fulfill()
+                        case .Failure(let error):
+                          print(error)
+                        }
+    })
     waitForExpectationsWithTimeout(5, handler: nil)
   }
   

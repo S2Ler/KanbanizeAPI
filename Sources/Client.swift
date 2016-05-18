@@ -4,7 +4,18 @@ import Foundation
 public final class Client {
   public let subdomain: String
   internal let loginInfo: LoginInfo
-  private(set) internal var credentials: Credentials?
+  private var _credentials: Credentials?
+  private(set) internal var credentials: Credentials? {
+    get {
+      if case LoginInfo.APIKey(let apiKey) = loginInfo {
+        _credentials = Credentials(apiKey: apiKey)
+      }
+      return _credentials
+    }
+    set {
+      _credentials = newValue
+    }
+  }
   internal let executor: Executor
   
   public init(subdomain: String, loginInfo: LoginInfo, executor: Executor = SimpleExecutor()) {
@@ -96,19 +107,25 @@ public extension Client {
    */
   public func login(completion: (Result<LoginResult?, ClientError>) -> Void) {
     switch loginInfo {
-    case .APIKey(let apiKey):
-      credentials = Credentials(apiKey: apiKey)
+    case .APIKey(_):
+      //API Key login info considered as automatically logged in
       completion(.Success(nil))
     case .Password(let email, let password):
-      login(email, password: password) { result in
+      login(email, password: password) { [weak self] result in
         switch result {
-        case .Success(let value):
-          completion(.Success(value))
+        case .Success(let loginResult):
+          self?.credentials = Credentials(apiKey: loginResult.apiKey)
+          completion(.Success(loginResult))
         case .Failure(let error):
+          self?.credentials = nil
           completion(.Failure(error))
         }
       }
     }
+  }
+    
+  private func login(apiKey apiKey: String) {
+    credentials = Credentials(apiKey: apiKey)
   }
   
   private func login(email: String, password: String, completion: (Result<LoginResult, ClientError>) -> Void) {
