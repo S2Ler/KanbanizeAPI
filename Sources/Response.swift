@@ -30,6 +30,8 @@ internal struct DataParser {
   internal static func tryParseErrorJSON(jsonObject: AnyObject) -> ClientError? {
     guard let json = jsonObject as? Dictionary<String, AnyObject> else { return nil }
     
+    print("Error: \(json)")
+    
     guard let status = json["status"] as? Bool,
       let response = json["response"] as? String where status == false
       else { return nil }

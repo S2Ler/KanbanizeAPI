@@ -77,6 +77,7 @@ public protocol Executor {
 internal extension Client {
   func execute<ResultType: APIResult>(request: NSURLRequest, completion: (Result<ResultType, ClientError>) -> Void) {
     executor.execute(request) { (data: NSData?, response: NSURLResponse?, error: NSError?) in
+
       if let data = data {
         do {
           let parsedResult: ResultType = try DataParser.parse(data)
