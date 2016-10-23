@@ -15,7 +15,7 @@
 		092999E31C72655500DC2CFA /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092999E21C72655500DC2CFA /* Request.swift */; };
 		098365BF1C725F95007F5436 /* KanbanizeAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 098365BE1C725F95007F5436 /* KanbanizeAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		098365C61C725F95007F5436 /* KanbanizeAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 098365BB1C725F95007F5436 /* KanbanizeAPI.framework */; };
-		098365CB1C725F95007F5436 /* KanbanizeAPIOSXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098365CA1C725F95007F5436 /* KanbanizeAPIOSXTests.swift */; };
+		098365CB1C725F95007F5436 /* KanbanizeAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098365CA1C725F95007F5436 /* KanbanizeAPITests.swift */; };
 		098365D41C72607E007F5436 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098365D31C72607E007F5436 /* URL.swift */; };
 		098365D61C7260F1007F5436 /* APIFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098365D51C7260F1007F5436 /* APIFunctions.swift */; };
 		099646231C9550B900646E73 /* ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099646221C9550B900646E73 /* ClientTests.swift */; };
@@ -44,8 +44,8 @@
 		098365BB1C725F95007F5436 /* KanbanizeAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KanbanizeAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		098365BE1C725F95007F5436 /* KanbanizeAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KanbanizeAPI.h; sourceTree = "<group>"; };
 		098365C01C725F95007F5436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		098365C51C725F95007F5436 /* KanbanizeAPIOSXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanbanizeAPIOSXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		098365CA1C725F95007F5436 /* KanbanizeAPIOSXTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanizeAPIOSXTests.swift; sourceTree = "<group>"; };
+		098365C51C725F95007F5436 /* KanbanizeAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KanbanizeAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		098365CA1C725F95007F5436 /* KanbanizeAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanbanizeAPITests.swift; sourceTree = "<group>"; };
 		098365CC1C725F95007F5436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		098365D31C72607E007F5436 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		098365D51C7260F1007F5436 /* APIFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIFunctions.swift; sourceTree = "<group>"; };
@@ -87,8 +87,8 @@
 			isa = PBXGroup;
 			children = (
 				098365B51C725F77007F5436 /* Sources */,
-				098365BD1C725F95007F5436 /* KanbanizeAPIOSX */,
-				098365C91C725F95007F5436 /* KanbanizeAPIOSXTests */,
+				098365BD1C725F95007F5436 /* KanbanizeAPI */,
+				098365C91C725F95007F5436 /* KanbanizeAPITests */,
 				098365BC1C725F95007F5436 /* Products */,
 			);
 			indentWidth = 2;
@@ -114,30 +114,30 @@
 			isa = PBXGroup;
 			children = (
 				098365BB1C725F95007F5436 /* KanbanizeAPI.framework */,
-				098365C51C725F95007F5436 /* KanbanizeAPIOSXTests.xctest */,
+				098365C51C725F95007F5436 /* KanbanizeAPITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		098365BD1C725F95007F5436 /* KanbanizeAPIOSX */ = {
+		098365BD1C725F95007F5436 /* KanbanizeAPI */ = {
 			isa = PBXGroup;
 			children = (
 				098365BE1C725F95007F5436 /* KanbanizeAPI.h */,
 				098365C01C725F95007F5436 /* Info.plist */,
 			);
-			path = KanbanizeAPIOSX;
+			path = KanbanizeAPI;
 			sourceTree = "<group>";
 		};
-		098365C91C725F95007F5436 /* KanbanizeAPIOSXTests */ = {
+		098365C91C725F95007F5436 /* KanbanizeAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				098365CA1C725F95007F5436 /* KanbanizeAPIOSXTests.swift */,
+				098365CA1C725F95007F5436 /* KanbanizeAPITests.swift */,
 				099646221C9550B900646E73 /* ClientTests.swift */,
 				098365CC1C725F95007F5436 /* Info.plist */,
 				099646241C95512400646E73 /* APIKey.swift */,
 				099646261C95543100646E73 /* URLTests.swift */,
 			);
-			path = KanbanizeAPIOSXTests;
+			path = KanbanizeAPITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,9 +154,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		098365BA1C725F95007F5436 /* KanbanizeAPIOSX */ = {
+		098365BA1C725F95007F5436 /* KanbanizeAPI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 098365CD1C725F95007F5436 /* Build configuration list for PBXNativeTarget "KanbanizeAPIOSX" */;
+			buildConfigurationList = 098365CD1C725F95007F5436 /* Build configuration list for PBXNativeTarget "KanbanizeAPI" */;
 			buildPhases = (
 				098365B61C725F95007F5436 /* Sources */,
 				098365B71C725F95007F5436 /* Frameworks */,
@@ -167,14 +167,14 @@
 			);
 			dependencies = (
 			);
-			name = KanbanizeAPIOSX;
+			name = KanbanizeAPI;
 			productName = KanbanizeAPIOSX;
 			productReference = 098365BB1C725F95007F5436 /* KanbanizeAPI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		098365C41C725F95007F5436 /* KanbanizeAPIOSXTests */ = {
+		098365C41C725F95007F5436 /* KanbanizeAPITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 098365D01C725F95007F5436 /* Build configuration list for PBXNativeTarget "KanbanizeAPIOSXTests" */;
+			buildConfigurationList = 098365D01C725F95007F5436 /* Build configuration list for PBXNativeTarget "KanbanizeAPITests" */;
 			buildPhases = (
 				098365C11C725F95007F5436 /* Sources */,
 				098365C21C725F95007F5436 /* Frameworks */,
@@ -185,9 +185,9 @@
 			dependencies = (
 				098365C81C725F95007F5436 /* PBXTargetDependency */,
 			);
-			name = KanbanizeAPIOSXTests;
+			name = KanbanizeAPITests;
 			productName = KanbanizeAPIOSXTests;
-			productReference = 098365C51C725F95007F5436 /* KanbanizeAPIOSXTests.xctest */;
+			productReference = 098365C51C725F95007F5436 /* KanbanizeAPITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -220,8 +220,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				098365BA1C725F95007F5436 /* KanbanizeAPIOSX */,
-				098365C41C725F95007F5436 /* KanbanizeAPIOSXTests */,
+				098365BA1C725F95007F5436 /* KanbanizeAPI */,
+				098365C41C725F95007F5436 /* KanbanizeAPITests */,
 			);
 		};
 /* End PBXProject section */
@@ -266,7 +266,7 @@
 			files = (
 				099646231C9550B900646E73 /* ClientTests.swift in Sources */,
 				099646251C95512400646E73 /* APIKey.swift in Sources */,
-				098365CB1C725F95007F5436 /* KanbanizeAPIOSXTests.swift in Sources */,
+				098365CB1C725F95007F5436 /* KanbanizeAPITests.swift in Sources */,
 				099646271C95543100646E73 /* URLTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +276,7 @@
 /* Begin PBXTargetDependency section */
 		098365C81C725F95007F5436 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 098365BA1C725F95007F5436 /* KanbanizeAPIOSX */;
+			target = 098365BA1C725F95007F5436 /* KanbanizeAPI */;
 			targetProxy = 098365C71C725F95007F5436 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -339,13 +339,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = KanbanizeAPIOSX/Info.plist;
+				INFOPLIST_FILE = KanbanizeAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.diejmon.KanbanizeAPIOSX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diejmon.KanbanizeAPI;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = KanbanizeAPI;
 				SDKROOT = macosx;
@@ -393,12 +393,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = KanbanizeAPIOSX/Info.plist;
+				INFOPLIST_FILE = KanbanizeAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.diejmon.KanbanizeAPIOSX;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diejmon.KanbanizeAPI;
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
 				PRODUCT_NAME = KanbanizeAPI;
 				SDKROOT = macosx;
@@ -445,12 +445,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = KanbanizeAPIOSXTests/Info.plist;
+				INFOPLIST_FILE = KanbanizeAPITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.diejmon.KanbanizeAPIOSXTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diejmon.KanbanizeAPITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -488,11 +488,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = KanbanizeAPIOSXTests/Info.plist;
+				INFOPLIST_FILE = KanbanizeAPITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.diejmon.KanbanizeAPIOSXTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diejmon.KanbanizeAPITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -510,7 +510,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		098365CD1C725F95007F5436 /* Build configuration list for PBXNativeTarget "KanbanizeAPIOSX" */ = {
+		098365CD1C725F95007F5436 /* Build configuration list for PBXNativeTarget "KanbanizeAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				098365CE1C725F95007F5436 /* Debug */,
@@ -519,7 +519,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		098365D01C725F95007F5436 /* Build configuration list for PBXNativeTarget "KanbanizeAPIOSXTests" */ = {
+		098365D01C725F95007F5436 /* Build configuration list for PBXNativeTarget "KanbanizeAPITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				098365D11C725F95007F5436 /* Debug */,
