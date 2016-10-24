@@ -1,11 +1,11 @@
 
 import Foundation
 
-public enum ClientError: ErrorType {
-  case WrongResponseFormat
-  case APIError(response: String)
-  case JSONMallformed
-  case NetworkError(NSError)
+public enum ClientError: Error {
+  case wrongResponseFormat
+  case apiError(response: String)
+  case jsonMallformed
+  case networkError(Error)
 }
 
 public protocol APIResult {
@@ -13,42 +13,42 @@ public protocol APIResult {
 }
 
 internal struct DataParser {
-  static func parse<T: APIResult>(data: NSData) throws -> T {
-    let jsonObject = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+  static func parse<T: APIResult>(_ data: Data) throws -> T {
+    let jsonObject = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0))
     
-    if let result = T(jsonObject: jsonObject) {
+    if let result = T(jsonObject: jsonObject as AnyObject) {
       return result
     }
-    else if let clientError = tryParseErrorJSON(jsonObject) {
+    else if let clientError = tryParseErrorJSON(jsonObject as AnyObject) {
       throw clientError
     }
     else {
-      throw ClientError.WrongResponseFormat
+      throw ClientError.wrongResponseFormat
     }
   }
   
-  internal static func tryParseErrorJSON(jsonObject: AnyObject) -> ClientError? {
+  internal static func tryParseErrorJSON(_ jsonObject: AnyObject) -> ClientError? {
     guard let json = jsonObject as? Dictionary<String, AnyObject> else { return nil }
     
     print("Error: \(json)")
     
     guard let status = json["status"] as? Bool,
-      let response = json["response"] as? String where status == false
+      let response = json["response"] as? String , status == false
       else { return nil }
-    return ClientError.APIError(response: response)
+    return ClientError.apiError(response: response)
   }
 
 }
 
-public enum Result<T, Error: ErrorType> {
-  case Success(T)
-  case Failure(Error)
+public enum Result<T, ErrorType: Error> {
+  case success(T)
+  case failure(ErrorType)
   
   public init(value: T) {
-    self = .Success(value)
+    self = .success(value)
   }
   
-  public init(error: Error) {
-    self = .Failure(error)
+  public init(error: ErrorType) {
+    self = .failure(error)
   }
 }

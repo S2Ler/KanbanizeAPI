@@ -8,8 +8,8 @@ public struct TaskID {
     self.value = taskID
   }
   
-  public init<T: IntegerType>(_ taskID: T) {
-    self.value = String(taskID)
+  public init<T: Integer>(_ taskID: T) {
+    self.value = String(describing: taskID)
   }
 }
 
@@ -60,7 +60,7 @@ public protocol RequestParamValueConvertible {
 
 extension CustomStringConvertible {
   public func convertToRequestParamValue() -> String {
-    return String(self)
+    return String(describing: self)
   }
 }
 

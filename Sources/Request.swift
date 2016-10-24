@@ -1,24 +1,24 @@
 
 import Foundation
 
-internal extension NSURLRequest {
-  static func create(subdomain subdomain: String,
-                               credentials: Client.Credentials,
-                               function: Function,
-                               params: [RequestParam]) -> NSMutableURLRequest {
-    let request = create(subdomain: subdomain, function: function, params: params)
+internal extension URLRequest {
+  static func create(subdomain: String,
+                     credentials: Client.Credentials,
+                     function: Function,
+                     params: [RequestParam]) -> URLRequest {
+    var request = create(subdomain: subdomain, function: function, params: params)
     request.addValue(credentials.apiKey, forHTTPHeaderField: "apikey")
-    request.HTTPMethod = "POST"
+    request.httpMethod = "POST"
     return request
   }
-  
-  static func create(subdomain subdomain: String,
-                               function: Function,
-                               params: [RequestParam]) -> NSMutableURLRequest {
-    let url = NSURL(subdomain: subdomain, function: function)
-    let request = NSMutableURLRequest(URL: url)
-    request.HTTPMethod = "POST"
-    request.HTTPBody = jsonData(params)
+
+  static func create(subdomain: String,
+                     function: Function,
+                     params: [RequestParam]) -> URLRequest {
+    let url = URL(subdomain: subdomain, function: function)
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.httpBody = jsonData(params)
     return request
   }
 }
@@ -28,10 +28,10 @@ internal protocol RequestParam {
   var value: String {get}
 }
 
-private func jsonData(params: [RequestParam]) -> NSData {
+private func jsonData(_ params: [RequestParam]) -> Data {
   var json: [String: String] = [:]
   params.forEach { json[$0.key] = $0.value }
-  let jsonData = try! NSJSONSerialization.dataWithJSONObject(json,
-                                                             options: NSJSONWritingOptions.init(rawValue: 0))
+  let jsonData = try! JSONSerialization.data(withJSONObject: json,
+                                             options: JSONSerialization.WritingOptions.init(rawValue: 0))
   return jsonData
 }

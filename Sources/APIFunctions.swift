@@ -2,17 +2,17 @@
 import Foundation
 
 enum Function {
-  case Login
-  case LogTime
-  case AddComment
+  case login
+  case logTime
+  case addComment
   
   var name: String {
     switch self {
-    case .Login:
+    case .login:
       return "login"
-    case .LogTime:
+    case .logTime:
       return "log_time"
-    case .AddComment:
+    case .addComment:
       return "add_comment"
     }
   }

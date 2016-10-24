@@ -4,6 +4,6 @@ import XCTest
 
 class URLTests: XCTestCase {
   func testURLCreation() {
-    XCTAssertNotNil(NSURL(subdomain: subdomain, function: Function.LogTime))
+    XCTAssertNotNil(URL(subdomain: subdomain, function: Function.logTime))
   }
 }

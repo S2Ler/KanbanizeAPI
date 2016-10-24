@@ -1,6 +1,6 @@
+internal let subdomain = "kanbanizeapi"
+internal let apiKey = "sA6DgsI1rojLzx2GtQEjkqg0cq6B4oRME3rGd65H"
+internal let validEmail = "diejmon@gmail.com"
+internal let validPassword = "admindigy"
 
-internal let subdomain = "YOUR_DOMAIN"
-internal let apiKey = "YOUR_API_KEY"
-internal let validEmail = "YOUR EMAIL"
-internal let validPassword = "YOUR PASSWORD"
 internal let testTaskID = "A_TASK_ID"
