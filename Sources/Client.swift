@@ -43,9 +43,7 @@ public final class Client {
   public enum Error: Swift.Error {
     case notLoggedIn
   }
-}
 
-public extension Client {
   public struct RequestBuilder {
     fileprivate let client: Client
     fileprivate init(client: Client) {
