@@ -8,7 +8,7 @@ public struct TaskID {
     self.value = taskID
   }
   
-  public init<T: Integer>(_ taskID: T) {
+  public init<T: FixedWidthInteger>(_ taskID: T) {
     self.value = String(describing: taskID)
   }
 }
